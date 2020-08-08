@@ -23,4 +23,4 @@ def arr2lines(strarr):
 
 
 def speak(lines):
-	os.system('espeak -ven+f2 -k5 -s150 "%s"' % lines)
+	os.system('spd-say "%s"' % lines)
