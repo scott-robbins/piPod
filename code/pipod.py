@@ -22,7 +22,7 @@ def create_user():
 
 def shuffle(uname):
 	if os.path.isfile(os.getcwd()+'/PIPOD/music.txt'):
-		music_dir = utils.swap(os.getcwd()+'/PIPOD/music.txt').pop()
+		music_dir = utils.swap(os.getcwd()+'/PIPOD/music.txt',False).pop()
 		songs = list(os.listdir(music_dir))
 		random.shuffle(songs)
 		for song in songs:
