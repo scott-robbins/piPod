@@ -29,7 +29,7 @@ def shuffle(uname):
 			if song != '..':
 				ext = song.split('.')[1]
 				print song.split('.')
-				if ext == '.mp3':
+				if ext == 'mp3':
 					os.system('mpg123 %s/%s' % (music_dir,song))
 				else:
 					os.system('aplay %s/%s' % (music_dir,song))
