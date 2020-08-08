@@ -16,3 +16,6 @@ def main():
 	dependencies = ['espeak', 'mpg123']
 	# Install Needed packages through apt-get
 	apt_gets(dependencies)
+
+if __name__ == '__main__':
+	main()
