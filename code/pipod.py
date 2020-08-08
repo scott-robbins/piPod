@@ -27,8 +27,8 @@ def shuffle(uname):
 		random.shuffle(songs)
 		for song in songs:
 			if song != '..':
-				print song
 				ext = song.split('.')[1]
+				print song.split('.')
 				if ext == '.mp3':
 					os.system('mpg123 %s/%s' % (music_dir,song))
 				else:
