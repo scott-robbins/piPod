@@ -13,6 +13,7 @@ def create_user():
 	while not path_added:
 		musicpath = raw_input('Enter the path you would like to use to point to music by default:\n')
 		if os.path.isdir(musicpath):
+			path_added  = True
 			open(os.getcwd()+'/PIPOD/music.txt','wb').write(musicpath)
 		else:
 			print('[!!] Cannot point PiPod to play music from path: %s because it cannot be found' % musicpath)
