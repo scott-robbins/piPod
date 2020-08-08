@@ -30,7 +30,7 @@ def shuffle(uname):
 			if ext == '.mp3':
 				os.system('mpg123 %s' % song)
 			else:
-				os.system('paplay %s' % song)
+				os.system('aplay %s' % song)
 	else:
 		utils.speak('Sorry %s, but you have not setup a music folder' % uname)
 		exit()
