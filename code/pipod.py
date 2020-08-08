@@ -26,11 +26,13 @@ def shuffle(uname):
 		songs = list(os.listdir(music_dir))
 		random.shuffle(songs)
 		for song in songs:
-			ext = song.split('.')[1]
-			if ext == '.mp3':
-				os.system('mpg123 %s' % song)
-			else:
-				os.system('aplay %s' % song)
+			if song != '..':
+				print song
+				ext = song.split('.')[1]
+				if ext == '.mp3':
+					os.system('mpg123 %s/%s' % (music_dir,song))
+				else:
+					os.system('aplay %s/%s' % (music_dir,song))
 	else:
 		utils.speak('Sorry %s, but you have not setup a music folder' % uname)
 		exit()
