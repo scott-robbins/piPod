@@ -21,7 +21,7 @@ the RaspberryPi will power-up, and boot into the piPod script now that it's in t
 
 ### Usage
 Initial prototype
-![prototype](https://youtu.be/6VVyyCdHMFI)
+[prototype](https://youtu.be/6VVyyCdHMFI)
 
 ### Features
 ____________________________________________________________________________________
