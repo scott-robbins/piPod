@@ -20,6 +20,8 @@ After running setup successfully, just put the RaspberryPi in your car, connect 
 the RaspberryPi will power-up, and boot into the piPod script now that it's in the /etc/rc.local file. 
 
 ### Usage
+Initial prototype
+![prototype](https://www.youtube.com/watch?v=6VVyyCdHMFI)
 
 ### Features
 ____________________________________________________________________________________
