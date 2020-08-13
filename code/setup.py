@@ -9,7 +9,7 @@ def change_startup_mode(new_mode):
 		if 'python' in line.split(' '):
 			fcn = line.split('python ')[1].split(' ')[0]
 			opt = line.split(fcn)[1].split(' ')[1]
-			print 'o changing current start-up mode from %s fcn to %s' % (fcn, new_mode)
+			print 'o changing current start-up mode from %s fcn to %s' % (opt, new_mode)
 
 def apt_gets(libraries):
 	"""
