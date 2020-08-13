@@ -7,18 +7,26 @@ def change_startup_mode(new_mode):
 	valid_modes = ['shuffle', 'upload', 'install', 'debug']
 	if new_mode not in valid_modes:
 		print '[!!] Unrecognized mode provided. Settings are unchanged.'
-	content = ''
-	for line in utils.swap('/etc/rc.local',False):
-		if 'pipod.py' in line.split(' '):
-			fcn = line.split('python ')[1].split(' ')[0]
-			opt = line.split(fcn)[1].split(' ')[1]
-			add = utils.arr2str(line.split(opt)[1].split(' ')[:])
-			line = 'python %s -%s' % (fcn, new_mode)
-			print '- changing current start-up mode from %s fcn to %s' % (opt, new_mode)
-		content += line + '\n'
+		return False
+	changed = False
+	try:
+		content = ''
+		for line in utils.swap('/etc/rc.local',False):
+			if 'pipod.py' in line.split(' '):
+				fcn = line.split('python ')[1].split(' ')[0]
+				opt = line.split(fcn)[1].split(' ')[1]
+				add = utils.arr2str(line.split(opt)[1].split(' ')[:])
+				line = 'python %s -%s' % (fcn, new_mode)
+				print '- changing current start-up mode from %s fcn to %s' % (opt, new_mode)
+			content += line + '\n'
+		# Now replace old rc.local with new one 
+		os.remove('/etc/rc.local')
+		open(os.getcwd()+'/rc.local','wb').write(content)
+		changed = True
+	except Exception:
+		changed = False
+	return changed
 
-	print 'New RC File:'
-	print content
 
 def apt_gets(libraries):
 	"""
@@ -47,7 +55,10 @@ def main():
 	# /etc/rc.local where pipod.py is called.
 	if '-change' in sys.argv and len(sys.argv) > 2:
 		mode = sys.argv[2]
-		change_startup_mode(mode)
+		if change_startup_mode(mode):
+			print '[*] /etc/rc.local has been modified (check to be sure)'
+		else:
+			print '[*] /etc/rc.local has NOT been modifed'
 
 
 if __name__ == '__main__':
