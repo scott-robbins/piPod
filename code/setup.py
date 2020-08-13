@@ -15,8 +15,10 @@ def change_startup_mode(new_mode):
 			opt = line.split(fcn)[1].split(' ')[1]
 			add = utils.arr2str(line.split(opt)[1].split(' ')[:])
 			new_line = 'python %s -%s' % (fcn, opt) + '\n'
-			print 'o changing current start-up mode from %s fcn to %s' % (opt, new_mode)
 			content += new_line
+
+			print '- changing current start-up mode from %s fcn to %s' % (opt, new_mode)
+
 	print 'New RC File:'
 	print content
 
