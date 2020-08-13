@@ -4,12 +4,21 @@ import os
 
 
 def change_startup_mode(new_mode):
+	valid_modes = ['shuffle', 'upload', 'install', 'debug']
+	if new_mode not in valid_modes:
+		print '[!!] Unrecognized mode provided. Settings are unchanged.'
 	content = ''
 	for line in utils.swap('/etc/rc.local',False):
+		content += line 
 		if 'python' in line.split(' '):
 			fcn = line.split('python ')[1].split(' ')[0]
 			opt = line.split(fcn)[1].split(' ')[1]
+			add = utils.arr2str(line.split(opt).split(' ')[:])
+			new_line = 'python %s %s' % (fcn, opt, add)
 			print 'o changing current start-up mode from %s fcn to %s' % (opt, new_mode)
+			content += new_line
+	print 'New RC File:'
+	print content
 
 def apt_gets(libraries):
 	"""
