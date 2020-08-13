@@ -11,7 +11,7 @@ Clone the repository on the Desktop of your raspberry pi.
 ```
 pi@raspberry:~/Desktop/$ git clone https://github.com/scott-robbins/piPod
 pi@raspberry:~/Desktop/$ cd piPod/code
-pi@raspberry:~/Desktop/$ sudo python setup.py
+pi@raspberry:~/Desktop/$ sudo python setup.py -install
 ```
 To run this script on start it needs to be added to /etc/rc.local this will be done during the `-setup` option if it hasn't been done already. Additionally, setup will check that you have music folder setup for creating playlists and customizing playback for modes other than a random shuffle. 
 
