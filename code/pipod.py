@@ -40,14 +40,14 @@ def shuffle(uname):
 
 def main():
 	if '-shuffle' in sys.argv:
-	if not os.path.isdir(os.getcwd()+'/PIPOD'):
-		create_user()
-	else:
-		username = utils.swap(os.getcwd()+'/PIPOD/username.txt', False).pop()
-		os.system('paplay service-login.oga')
-		utils.speak('Hello there %s. Your Pi Pod is starting.' % username)
-		# Now start shuffling music (default mode)
-		shuffle(username)
+		if not os.path.isdir(os.getcwd()+'/PIPOD'):
+			create_user()
+		else:
+			username = utils.swap(os.getcwd()+'/PIPOD/username.txt', False).pop()
+			os.system('paplay service-login.oga')
+			utils.speak('Hello there %s. Your Pi Pod is starting.' % username)
+			# Now start shuffling music (default mode)
+			shuffle(username)
 
 
 if __name__ == '__main__':
