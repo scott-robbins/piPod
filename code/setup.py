@@ -21,7 +21,7 @@ def change_startup_mode(new_mode):
 			content += line + '\n'
 		# Now replace old rc.local with new one 
 		os.remove('/etc/rc.local')
-		open(os.getcwd()+'/rc.local','wb').write(content)
+		open('/etc/rc.local','wb').write(content)
 		changed = True
 	except Exception:
 		changed = False
