@@ -10,6 +10,7 @@ def change_startup_mode(new_mode):
 		return False
 	changed = False
 	try:
+		os.remove('/etc/rc.local')
 		content = ''
 		for line in utils.swap('/etc/rc.local',False):
 			if 'pipod.py' in line.split(' '):
@@ -20,8 +21,8 @@ def change_startup_mode(new_mode):
 				print '- changing current start-up mode from %s fcn to %s' % (opt, new_mode)
 			content += line + '\n'
 		# Now replace old rc.local with new one 
-		os.remove('/etc/rc.local')
-		os.system('cat %s >> %s' % (content, '/etc/rc.local'))
+		print content
+		open('/etc/rc.local','wb').write(content)
 		changed = True
 	except Exception:
 		changed = False
