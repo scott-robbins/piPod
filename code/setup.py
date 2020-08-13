@@ -5,7 +5,7 @@ import os
 
 def change_startup_mode(new_mode):
 	content = ''
-	for line in utils.swap('/etc/rc.local',False)
+	for line in utils.swap('/etc/rc.local',False):
 		if 'python' in line.split(' '):
 			fcn = line.split('python ')[1].split(' ')[0]
 			opt = line.split(fcn)[1].split(' ')[1]
