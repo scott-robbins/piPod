@@ -20,7 +20,7 @@ def create_user():
 
 
 
-def shuffle(uname):
+def shuffle(uname,verbose):
 	if os.path.isfile(os.getcwd()+'/PIPOD/music.txt'):
 		time.sleep(1)
 		music_dir = utils.swap(os.getcwd()+'/PIPOD/music.txt',False).pop()
@@ -28,10 +28,13 @@ def shuffle(uname):
 		random.shuffle(songs)
 		for song in songs:
 			if song != '..':
+				name = song.split('.')[0]
 				ext = song.split('.')[1]
 				print song.split('.')
+				if verbose:
+					utils.speak('Playing %s' % name)
 				if ext == 'mp3':
-					os.system('mpg123 %s/%s' % (music_dir,song))
+					os.system('mpg123 --rva-album %s/%s' % (music_dir,song))
 				else:
 					os.system('aplay %s/%s' % (music_dir,song))
 	else:
@@ -40,6 +43,7 @@ def shuffle(uname):
 
 
 def main():
+	verbose = False
 	if '-shuffle' in sys.argv:
 		if not os.path.isdir(os.getcwd()+'/PIPOD'):
 			create_user()
@@ -48,7 +52,7 @@ def main():
 			os.system('paplay service-login.oga')
 			utils.speak('Hello there %s. Your Pi Pod is starting.' % username)
 			# Now start shuffling music (default mode)
-			shuffle(username)
+			shuffle(username, verbose)
 
 
 if __name__ == '__main__':
