@@ -39,6 +39,7 @@ def shuffle(uname):
 
 
 def main():
+	if '-shuffle' in sys.argv:
 	if not os.path.isdir(os.getcwd()+'/PIPOD'):
 		create_user()
 	else:

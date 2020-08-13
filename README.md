@@ -4,7 +4,6 @@ data it often requires. I could definitely put more music onto my phone, but to 
 phones even have that much memory anymore for music (I think companies would rather you pay for the data
 and use their streaming services. I mean why else stop producing 120GB MP3 players?). 
 
-
 *This project is actively under development in my spare time*
 
 ### Installation Setup 
@@ -20,8 +19,9 @@ After running setup successfully, just put the RaspberryPi in your car, connect 
 the RaspberryPi will power-up, and boot into the piPod script now that it's in the /etc/rc.local file. 
 
 ### Usage
-Initial prototype
-[prototype](https://youtu.be/6VVyyCdHMFI)
+Initial [prototype](https://youtu.be/6VVyyCdHMFI)
+** Using separate power source (small portable battery) eliminates the noisy interference. Will post updated video soon. 
+
 
 ### Features
 ____________________________________________________________________________________
