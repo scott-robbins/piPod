@@ -9,15 +9,14 @@ def change_startup_mode(new_mode):
 		print '[!!] Unrecognized mode provided. Settings are unchanged.'
 	content = ''
 	for line in utils.swap('/etc/rc.local',False):
-		content += line 
-		if 'python' in line.split(' '):
+		if 'pipod.py' in line.split(' '):
 			fcn = line.split('python ')[1].split(' ')[0]
 			opt = line.split(fcn)[1].split(' ')[1]
 			add = utils.arr2str(line.split(opt)[1].split(' ')[:])
-			new_line = 'python %s -%s' % (fcn, opt) + '\n'
-			content += new_line
+			line = 'python %s -%s' % (fcn, opt) + '\n'
 
 			print '- changing current start-up mode from %s fcn to %s' % (opt, new_mode)
+		content += new_line
 
 	print 'New RC File:'
 	print content
