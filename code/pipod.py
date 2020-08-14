@@ -33,10 +33,11 @@ def shuffle(uname,verbose):
 				print song.split('.')
 				if verbose:
 					utils.speak('Playing %s' % name)
-				if ext == 'mp3':
-					os.system('mpg123 --rva-album %s/%s' % (music_dir,song))
-				else:
-					os.system('aplay %s/%s' % (music_dir,song))
+				os.system('omxplayer %s/%s' % (music_dir, song))
+				# if ext == 'mp3':
+				# 	os.system('mpg123 %s/%s' % (music_dir,song))
+				# else:
+				# 	os.system('aplay %s/%s' % (music_dir,song))
 	else:
 		utils.speak('Sorry %s, but you have not setup a music folder' % uname)
 		exit()
@@ -49,7 +50,7 @@ def main():
 			create_user()
 		else:
 			username = utils.swap(os.getcwd()+'/PIPOD/username.txt', False).pop()
-			os.system('paplay service-login.oga')
+			os.system('omxplayer service-login.oga')
 			utils.speak('Hello there %s. Your Pi Pod is starting.' % username)
 			# Now start shuffling music (default mode)
 			shuffle(username, verbose)
